@@ -1,0 +1,21 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="jTestTeacher">
+    <output-path>$PROJECT_DIR$/out/artifacts/jTestTeacher</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="me.NickP0is0n.Main" />
+        <option name="description" value="" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="title" value="" />
+        <option name="vendor" value="" />
+        <option name="version" value="" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="jTestTeacher.jar">
+        <element id="module-output" name="jTestTeacher" />
+        <element id="extracted-dir" path="$USER_HOME$/Downloads/jmetro-5.4.jar" path-in-jar="/" />
+      </element>
+    </root>
+  </artifact>
+</component>

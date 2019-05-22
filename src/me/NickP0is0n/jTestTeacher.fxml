@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="581.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.NickP0is0n.Controller">
+  <children>
+    <MenuBar prefHeight="7.0" prefWidth="640.0" VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="Файл">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#makeNewFile" text="Новий файл" />
+            <MenuItem mnemonicParsing="false" onAction="#openFile" text="Відкрити…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" onAction="#saveFile" text="Зберегти" />
+            <MenuItem mnemonicParsing="false" onAction="#saveAsFile" text="Зберегти як..." />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" onAction="#setPassword" text="Встановити пароль..." />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" onAction="#exitApp" text="Вийти" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Довідка">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#about" text="Про jTest Teacher" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" VBox.vgrow="ALWAYS">
+         <children>
+            <ChoiceBox fx:id="taskSelector" disable="true" layoutX="290.0" layoutY="14.0" prefHeight="27.0" prefWidth="333.0" />
+            <Text layoutX="22.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Оберіть задачу для редагування:" />
+            <TextArea fx:id="taskEdit" layoutX="290.0" layoutY="129.0" prefHeight="113.0" prefWidth="333.0" />
+            <Text layoutX="145.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Умова задачі:" />
+            <TabPane layoutX="22.0" layoutY="259.0" prefHeight="279.0" prefWidth="601.0" style="-fx-border-color: black;" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Тест 1">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="601.0">
+                           <children>
+                              <TextArea fx:id="t1in" layoutX="189.0" layoutY="23.0" prefHeight="87.0" prefWidth="333.0" />
+                              <Text layoutX="44.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Вхідні дані:" />
+                              <TextArea fx:id="t1out" layoutX="189.0" layoutY="133.0" prefHeight="87.0" prefWidth="333.0" />
+                              <Text layoutX="44.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Вихідні дані:" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab text="Тест 2">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="601.0">
+                           <children>
+                              <TextArea fx:id="t2in" layoutX="189.0" layoutY="23.0" prefHeight="87.0" prefWidth="333.0" />
+                              <Text layoutX="44.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Вхідні дані:" />
+                              <TextArea fx:id="t2out" layoutX="189.0" layoutY="133.0" prefHeight="87.0" prefWidth="333.0" />
+                              <Text layoutX="44.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Вихідні дані:" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Тест 3">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="601.0">
+                           <children>
+                              <TextArea fx:id="t3in" layoutX="189.0" layoutY="23.0" prefHeight="87.0" prefWidth="333.0" />
+                              <Text layoutX="44.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Вхідні дані:" />
+                              <TextArea fx:id="t3out" layoutX="189.0" layoutY="133.0" prefHeight="87.0" prefWidth="333.0" />
+                              <Text layoutX="44.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Вихідні дані:" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Тест 4">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="601.0">
+                           <children>
+                              <TextArea fx:id="t4in" layoutX="189.0" layoutY="23.0" prefHeight="87.0" prefWidth="333.0" />
+                              <Text layoutX="44.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Вхідні дані:" />
+                              <TextArea fx:id="t4out" layoutX="189.0" layoutY="133.0" prefHeight="87.0" prefWidth="333.0" />
+                              <Text layoutX="44.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Вихідні дані:" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Тест 5">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="601.0">
+                           <children>
+                              <TextArea fx:id="t5in" layoutX="189.0" layoutY="23.0" prefHeight="87.0" prefWidth="333.0" />
+                              <Text layoutX="44.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Вхідні дані:" />
+                              <TextArea fx:id="t5out" layoutX="189.0" layoutY="133.0" prefHeight="87.0" prefWidth="333.0" />
+                              <Text layoutX="44.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Вихідні дані:" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+            <Button fx:id="saveTaskBtn" disable="true" layoutX="125.0" layoutY="215.0" mnemonicParsing="false" onAction="#saveTask" text="Зберегти задачу" />
+            <TextField fx:id="taskName" layoutX="290.0" layoutY="87.0" prefHeight="27.0" prefWidth="333.0" />
+            <Text layoutX="145.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Назва задачі:" />
+            <Button fx:id="addTaskBtn" disable="true" layoutX="448.0" layoutY="50.0" mnemonicParsing="false" onAction="#addNewTask" text="Додати нову задачу" />
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>
