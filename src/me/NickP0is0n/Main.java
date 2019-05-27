@@ -20,7 +20,7 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 640, 581));
         primaryStage.setResizable(false);
         primaryStage.getIcons().add(new Image(new File("/resources/logo.png").toURI().toString()));
-        com.apple.eawt.Application.getApplication().setDockIconImage(new ImageIcon("resources/logo.png").getImage()); //для иконки в доке macOS
+        if(System.getProperty("os.name").equals("Mac OS X")) com.apple.eawt.Application.getApplication().setDockIconImage(new ImageIcon("resources/logo.png").getImage()); //для иконки в доке macOS
         new JMetro(JMetro.Style.LIGHT).applyTheme(root);
         primaryStage.show();
     }
