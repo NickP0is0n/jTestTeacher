@@ -68,7 +68,7 @@ public class Controller {
     @FXML
     void addNewTask(ActionEvent event) {
         taskNumber++;
-        currentTaskSet.add(new Task("Без назви"));
+        currentTaskSet.add(new Task("Untitled task"));
         taskSelector.getItems().add(taskNumber + ". " + currentTaskSet.get(taskNumber - 1).getTaskName());
         taskSelector.setValue(taskNumber + ". " + currentTaskSet.get(taskNumber - 1).getTaskName());
     }
@@ -91,8 +91,8 @@ public class Controller {
     @FXML
     void openFile(ActionEvent event) {
         FileChooser chooser = new FileChooser(); //діалог збереження
-        chooser.setTitle("Оберіть файл із завданнями");
-        chooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Файли завдань (.jt)", "*.jt")); //фильтр файлов
+        chooser.setTitle("Choose task file");
+        chooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("jTest task set files (.jt)", "*.jt")); //фильтр файлов
         File taskFile = chooser.showOpenDialog(new Stage()); //показ диалога на отдельной сцене
         if(taskFile != null)
         {
@@ -104,7 +104,7 @@ public class Controller {
                 currentTaskSet = (TaskSet) ois.readObject();
             }
             catch(Exception ex){
-                showError("Виникла помилка при читанні файлу!");
+                showError("An error occurred while reading the file!");
             }
             taskNumber = currentTaskSet.size();
             updateSelector(0);
@@ -115,8 +115,8 @@ public class Controller {
     void saveAsFile(ActionEvent event) {
         if (isFileInWork) {
             FileChooser chooser = new FileChooser(); //діалог збереження
-            chooser.setTitle("Збережіть файл із завданнями");
-            chooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Файли завдань (.jt)", "*.jt")); //фильтр файлов
+            chooser.setTitle("Save the task file");
+            chooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("jTest task set files (.jt)", "*.jt")); //фильтр файлов
             File taskFile = chooser.showSaveDialog(new Stage()); //показ диалога на отдельной сцене
             if (taskFile != null) {
                 try {
@@ -127,7 +127,7 @@ public class Controller {
                     hasFileSaved = false;
                     currentFile = null;
                     e.printStackTrace();
-                    showError("Виникла помилка при створенні файлу!");
+                    showError("An error occurred while creating the file!");
                 }
             }
             if (currentFile != null) {
@@ -135,7 +135,7 @@ public class Controller {
                     oos.writeObject(currentTaskSet);
                 } catch (Exception e) {
                     e.printStackTrace();
-                    showError("Виникла помилка при збереженні файлу!");
+                    showError("An error occurred while saving the file!");
                 }
             }
         }
@@ -155,7 +155,7 @@ public class Controller {
                 oos.writeObject(currentTaskSet);
             } catch (Exception e) {
                 e.printStackTrace();
-                showError("Виникла помилка при збереженні файлу!");
+                showError("An error occurred while saving the file!");
             }
         }
     }
@@ -182,8 +182,8 @@ public class Controller {
     @FXML
     void setPassword(ActionEvent event) {
         TextInputDialog dialog = new TextInputDialog();
-        dialog.setTitle("Встановлення захисту");
-        dialog.setContentText("Введіть пароль, яким ви хочете захистити файл завдання:");
+        dialog.setTitle("Password protection");
+        dialog.setContentText("Enter the password you want to protect the task file:");
         Optional<String> result = dialog.showAndWait();
         if (result.isPresent())
         {
@@ -199,14 +199,14 @@ public class Controller {
     @FXML
     void about(ActionEvent event) {
         Alert aboutAlert = new Alert(Alert.AlertType.INFORMATION); //Создание окна ошибки
-        aboutAlert.setTitle("Про програму");
+        aboutAlert.setTitle("About jTest Teacher");
         aboutAlert.setHeaderText("jTest Teacher");
         aboutAlert.setGraphic(new ImageView(new File("resources/logo.png").toURI().toString()));
-        aboutAlert.setContentText("Версія 1.0.0\n\n" +
-                "jTest Teacher є програмою для створення наборів завдань для тестування учнів з інформатики за допомогою jTest.\n\n" +
-                "jTest Teacher є частиною програмного комплексу " +
-                "jTest для тестування учнів з інформатики.\n" +
-                "Початковий код захищено 3-пунктовою ліцензією BSD.");
+        aboutAlert.setContentText("Version 1.1 Beta 1\n\n" +
+                "jTest Teacher is a program for creating task sets for jTest Student.\n\n" +
+                "jTest Teacher is a part of jTest software package.\n"+
+                "Source code licensed under BSD-3 Clause license. Feel free to use/copy/modify this package as long as you specifying the name of the author.\n" +
+                "Copyright (c) 2019, Nickolay Chaykovskyi All rights reserved.");
         aboutAlert.showAndWait();
     }
 
