@@ -66,6 +66,11 @@ public class Controller {
     private int taskNumber = 0; //Кількість задач
 
     @FXML
+    void initialize() {
+        makeNewFile(new ActionEvent());
+    }
+
+    @FXML
     void addNewTask(ActionEvent event) {
         taskNumber++;
         currentTaskSet.add(new Task("Untitled task"));

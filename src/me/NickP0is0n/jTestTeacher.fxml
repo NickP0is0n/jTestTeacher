@@ -111,7 +111,7 @@
             <Button fx:id="saveTaskBtn" disable="true" layoutX="125.0" layoutY="215.0" mnemonicParsing="false" onAction="#saveTask" text="Save task" />
             <TextField fx:id="taskName" layoutX="290.0" layoutY="87.0" prefHeight="27.0" prefWidth="333.0" />
             <Text layoutX="129.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Task name:" />
-            <Button fx:id="addTaskBtn" disable="true" layoutX="448.0" layoutY="50.0" mnemonicParsing="false" onAction="#addNewTask" text="Add new task" />
+            <Button fx:id="addTaskBtn" disable="true" layoutX="476.0" layoutY="49.0" mnemonicParsing="false" onAction="#addNewTask" prefHeight="27.0" prefWidth="147.0" text="Add new task" AnchorPane.bottomAnchor="476.0" AnchorPane.leftAnchor="476.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="49.0" />
          </children>
     </AnchorPane>
   </children>
