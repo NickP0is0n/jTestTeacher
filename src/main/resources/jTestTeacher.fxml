@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="581.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.NickP0is0n.Controller">
+  <children>
+    <MenuBar prefHeight="7.0" prefWidth="640.0" style="-fx-background-color: CCCCCC;" VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#makeNewFile" text="New file" />
+            <MenuItem mnemonicParsing="false" onAction="#openFile" text="Open..." />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" onAction="#saveFile" text="Save" />
+            <MenuItem mnemonicParsing="false" onAction="#saveAsFile" text="Save as..." />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" onAction="#setPassword" text="Set password..." />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" onAction="#exitApp" text="Close" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#about" text="About jTest Teacher" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" style="-fx-background-color: FFFFFF;" VBox.vgrow="ALWAYS">
+         <children>
+            <ChoiceBox fx:id="taskSelector" disable="true" layoutX="290.0" layoutY="14.0" prefHeight="27.0" prefWidth="333.0" />
+            <Text layoutX="130.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose task for editing:" />
+            <TextArea fx:id="taskEdit" layoutX="290.0" layoutY="129.0" prefHeight="113.0" prefWidth="333.0" />
+            <Text layoutX="129.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The task:" />
+            <TabPane layoutX="22.0" layoutY="259.0" prefHeight="279.0" prefWidth="601.0" style="-fx-border-color: black;" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Test 1">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="601.0">
+                           <children>
+                              <TextArea fx:id="t1in" layoutX="189.0" layoutY="23.0" prefHeight="87.0" prefWidth="333.0" />
+                              <Text layoutX="44.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Input data:" />
+                              <TextArea fx:id="t1out" layoutX="189.0" layoutY="133.0" prefHeight="87.0" prefWidth="333.0" />
+                              <Text layoutX="44.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Output data:" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab text="Test 2">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="601.0">
+                           <children>
+                              <TextArea fx:id="t2in" layoutX="189.0" layoutY="23.0" prefHeight="87.0" prefWidth="333.0" />
+                              <Text layoutX="44.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Input data:" />
+                              <TextArea fx:id="t2out" layoutX="189.0" layoutY="133.0" prefHeight="87.0" prefWidth="333.0" />
+                              <Text layoutX="44.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Output data:" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Test 3">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="601.0">
+                           <children>
+                              <TextArea fx:id="t3in" layoutX="189.0" layoutY="23.0" prefHeight="87.0" prefWidth="333.0" />
+                              <Text layoutX="44.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Input data:" />
+                              <TextArea fx:id="t3out" layoutX="189.0" layoutY="133.0" prefHeight="87.0" prefWidth="333.0" />
+                              <Text layoutX="44.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Output data:" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Test 4">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="601.0">
+                           <children>
+                              <TextArea fx:id="t4in" layoutX="189.0" layoutY="23.0" prefHeight="87.0" prefWidth="333.0" />
+                              <Text layoutX="44.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Input data:" />
+                              <TextArea fx:id="t4out" layoutX="189.0" layoutY="133.0" prefHeight="87.0" prefWidth="333.0" />
+                              <Text layoutX="44.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Output data:" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Test 5">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="601.0">
+                           <children>
+                              <TextArea fx:id="t5in" layoutX="189.0" layoutY="23.0" prefHeight="87.0" prefWidth="333.0" />
+                              <Text layoutX="44.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Input data:" />
+                              <TextArea fx:id="t5out" layoutX="189.0" layoutY="133.0" prefHeight="87.0" prefWidth="333.0" />
+                              <Text layoutX="44.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Output data:" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+            <Button fx:id="saveTaskBtn" disable="true" layoutX="125.0" layoutY="215.0" mnemonicParsing="false" onAction="#saveTask" text="Save task" />
+            <TextField fx:id="taskName" layoutX="290.0" layoutY="87.0" prefHeight="27.0" prefWidth="333.0" />
+            <Text layoutX="129.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Task name:" />
+            <Button fx:id="addTaskBtn" disable="true" layoutX="476.0" layoutY="49.0" mnemonicParsing="false" onAction="#addNewTask" prefHeight="27.0" prefWidth="147.0" text="Add new task" AnchorPane.bottomAnchor="476.0" AnchorPane.leftAnchor="476.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="49.0" />
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>
