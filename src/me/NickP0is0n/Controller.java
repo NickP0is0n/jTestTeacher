@@ -220,7 +220,7 @@ public class Controller {
     void showError(String text)
     {
         Alert error = new Alert(Alert.AlertType.ERROR); //Створення повідомлення про помилку
-        error.setTitle("Помилка");
+        error.setTitle("Error");
         error.setContentText(text);
         error.showAndWait();
     }

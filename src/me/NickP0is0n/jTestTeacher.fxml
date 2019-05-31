@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="581.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.NickP0is0n.Controller">
+<VBox prefHeight="581.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.NickP0is0n.Controller">
   <children>
     <MenuBar prefHeight="7.0" prefWidth="640.0" VBox.vgrow="NEVER">
       <menus>
@@ -43,10 +43,10 @@
             <ChoiceBox fx:id="taskSelector" disable="true" layoutX="290.0" layoutY="14.0" prefHeight="27.0" prefWidth="333.0" />
             <Text layoutX="130.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose task for editing:" />
             <TextArea fx:id="taskEdit" layoutX="290.0" layoutY="129.0" prefHeight="113.0" prefWidth="333.0" />
-            <Text layoutX="129.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The task:" />
+            <Text layoutX="129.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The task:" />
             <TabPane layoutX="22.0" layoutY="259.0" prefHeight="279.0" prefWidth="601.0" style="-fx-border-color: black;" tabClosingPolicy="UNAVAILABLE">
               <tabs>
-                <Tab text="Тест 1">
+                <Tab text="Test 1">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="601.0">
                            <children>
@@ -58,7 +58,7 @@
                         </AnchorPane>
                   </content>
                 </Tab>
-                  <Tab text="Тест 2">
+                  <Tab text="Test 2">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="601.0">
                            <children>
@@ -70,7 +70,7 @@
                         </AnchorPane>
                      </content>
                   </Tab>
-                  <Tab text="Тест 3">
+                  <Tab text="Test 3">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="601.0">
                            <children>
@@ -82,7 +82,7 @@
                         </AnchorPane>
                      </content>
                   </Tab>
-                  <Tab text="Тест 4">
+                  <Tab text="Test 4">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="601.0">
                            <children>
@@ -94,7 +94,7 @@
                         </AnchorPane>
                      </content>
                   </Tab>
-                  <Tab text="Тест 5">
+                  <Tab text="Test 5">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="601.0">
                            <children>
