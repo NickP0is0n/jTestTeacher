@@ -9,6 +9,8 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import jfxtras.styles.jmetro8.JMetro;
 
+import java.io.IOException;
+
 public class Main extends Application {
 
     @Override
@@ -23,6 +25,23 @@ public class Main extends Application {
         if(System.getProperty("os.name").equals("Mac OS X")) com.apple.eawt.Application.getApplication().setDockIconImage(logo); //для иконки в доке macOS
         new JMetro(JMetro.Style.LIGHT).applyTheme(root);
         primaryStage.show();
+    }
+
+    public static FXMLLoader makeLoader (String fxmlFile) {
+        FXMLLoader loader = new FXMLLoader(Main.class.getClassLoader().getResource(fxmlFile));
+        return loader;
+    }
+
+    public static Stage startStage (FXMLLoader loader, String title, int width, int height, boolean resizable) throws IOException {
+        Stage stage = new Stage();
+        stage.getIcons().add(new Image("file:/resources/logo.png"));
+        stage.setTitle(title);
+        Parent root = (Parent)loader.load();
+        new JMetro(JMetro.Style.LIGHT).applyTheme(root);
+        Scene scene = new Scene(root, width, height);
+        stage.setScene(scene);
+        stage.setResizable(resizable);
+        return stage;
     }
 
 

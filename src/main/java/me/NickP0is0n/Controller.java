@@ -4,11 +4,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.*;
 import java.util.Optional;
@@ -203,17 +205,11 @@ public class Controller {
     }
 
     @FXML
-    void about(ActionEvent event) {
-        Alert aboutAlert = new Alert(Alert.AlertType.INFORMATION); //Создание окна ошибки
-        aboutAlert.setTitle("About jTest Teacher");
-        aboutAlert.setHeaderText("jTest Teacher");
-        aboutAlert.setGraphic(new ImageView(new Image(Controller.class.getClassLoader().getResourceAsStream("logo.png"))));
-        aboutAlert.setContentText("Version 1.1 Beta 1\n\n" +
-                "jTest Teacher is a program for creating task sets for jTest Student.\n\n" +
-                "jTest Teacher is a part of jTest software package.\n"+
-                "Source code licensed under BSD-3 Clause license. Feel free to use/copy/modify this package as long as you specifying the name of the author.\n" +
-                "Copyright (c) 2019, Nickolay Chaykovskyi All rights reserved.");
-        aboutAlert.showAndWait();
+    void about(ActionEvent event) throws IOException {
+        FXMLLoader loader = Main.makeLoader("about.fxml");
+        Stage stage = Main.startStage(loader, "About jTest Student", 600, 400, false);
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.show();
     }
 
     void setButtonsState(boolean state) //Керування станом кнопок, які відповідають за зміни в задачах
