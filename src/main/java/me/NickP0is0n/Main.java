@@ -11,6 +11,7 @@ import javafx.stage.StageStyle;
 import jfxtras.styles.jmetro8.JMetro;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class Main extends Application {
 
@@ -26,8 +27,8 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 649, 380));
         primaryStage.setResizable(false);
         primaryStage.initStyle(StageStyle.UNDECORATED);
-        primaryStage.getIcons().add(new Image(Main.class.getClassLoader().getResourceAsStream("logo.png")));
-        java.awt.Image logo = SwingFXUtils.fromFXImage(new Image(Main.class.getClassLoader().getResourceAsStream("logo.png")), null);
+        primaryStage.getIcons().add(new Image(Objects.requireNonNull(Main.class.getClassLoader().getResourceAsStream("logo.png"))));
+        java.awt.Image logo = SwingFXUtils.fromFXImage(new Image(Objects.requireNonNull(Main.class.getClassLoader().getResourceAsStream("logo.png"))), null);
         System.out.println();
         if(System.getProperty("os.name").equals("Mac OS X")) com.apple.eawt.Application.getApplication().setDockIconImage(logo); //для иконки в доке macOS
         new JMetro(JMetro.Style.LIGHT).applyTheme(root);
@@ -35,15 +36,14 @@ public class Main extends Application {
     }
 
     public static FXMLLoader makeLoader (String fxmlFile) {
-        FXMLLoader loader = new FXMLLoader(Main.class.getClassLoader().getResource(fxmlFile));
-        return loader;
+        return new FXMLLoader(Main.class.getClassLoader().getResource(fxmlFile));
     }
 
     public static Stage startStage (FXMLLoader loader, String title, int width, int height, boolean resizable) throws IOException {
         Stage stage = new Stage();
         stage.getIcons().add(new Image("file:/resources/logo.png"));
         stage.setTitle(title);
-        Parent root = (Parent)loader.load();
+        Parent root = loader.load();
         new JMetro(JMetro.Style.LIGHT).applyTheme(root);
         Scene scene = new Scene(root, width, height);
         stage.setScene(scene);

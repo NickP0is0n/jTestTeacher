@@ -6,8 +6,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -15,6 +13,7 @@ import javafx.stage.StageStyle;
 import java.io.*;
 import java.util.Optional;
 
+@SuppressWarnings("ALL")
 public class Controller {
 
     @FXML
@@ -69,12 +68,12 @@ public class Controller {
     private int taskNumber = 0; //Кількість задач
 
     @FXML
-    void initialize() {
-        makeNewFile(new ActionEvent());
+    public void initialize() {
+        makeNewFile();
     }
 
     @FXML
-    void addNewTask(ActionEvent event) {
+    public void addNewTask() {
         taskNumber++;
         currentTaskSet.add(new Task("Untitled task"));
         taskSelector.getItems().add(taskNumber + ". " + currentTaskSet.get(taskNumber - 1).getTaskName());
@@ -82,31 +81,65 @@ public class Controller {
     }
 
     @FXML
-    void exitApp(ActionEvent event) {
+    public void exitApp() {
         System.exit(0);
     }
 
     @FXML
-    void makeNewFile(ActionEvent event) {
+    public void makeNewFile() {
         isFileInWork = true;
         currentTaskSet = new TaskSet();
-        setButtonsState(true);
+        setButtonsState();
         taskNumber = 0;
         taskSelector.setItems(FXCollections.observableArrayList());
-        addNewTask(event);
+        addNewTask();
     }
 
     @FXML
-    void openFile(ActionEvent event) {
+    public void openFile(ActionEvent event) throws IOException {
         FileChooser chooser = new FileChooser(); //діалог збереження
         chooser.setTitle("Choose task file");
         chooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("jTest task set files (.jt)", "*.jt")); //фильтр файлов
         File taskFile = chooser.showOpenDialog(new Stage()); //показ диалога на отдельной сцене
+        openTaskFile(taskFile);
+    }
+
+    void openFile(File taskFile) throws IOException {
+        openTaskFile(taskFile);
+
+    }
+
+    private void removeLineFromFile(File inputFile, String lineToRemove) throws IOException {
+        File tempFile = new File("temp.txt");
+
+        BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+        BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+
+        String currentLine;
+
+        while((currentLine = reader.readLine()) != null) {
+            // trim newline when comparing with lineToRemove
+            String trimmedLine = currentLine.trim();
+            if(trimmedLine.equals(lineToRemove)) continue;
+            writer.write(currentLine + System.getProperty("line.separator"));
+        }
+        writer.close();
+        reader.close();
+        tempFile.renameTo(inputFile);
+    }
+
+    private void openTaskFile(File taskFile) throws IOException {
         if(taskFile != null)
         {
+            File latestList = new File("last.list");
+            removeLineFromFile(latestList, taskFile.getAbsolutePath());
+            try (Writer listWriter = new PrintWriter(new FileOutputStream(latestList, true))) {
+                listWriter.append(taskFile.getAbsolutePath());
+            }
+
             hasFileSaved = true;
             currentFile = taskFile;
-            setButtonsState(true);
+            setButtonsState();
             try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(taskFile)))
             {
                 currentTaskSet = (TaskSet) ois.readObject();
@@ -120,7 +153,7 @@ public class Controller {
     }
 
     @FXML
-    void saveAsFile(ActionEvent event) {
+    public void saveAsFile(ActionEvent event) {
         if (isFileInWork) {
             FileChooser chooser = new FileChooser(); //діалог збереження
             chooser.setTitle("Save the task file");
@@ -150,7 +183,7 @@ public class Controller {
     }
 
     @FXML
-    void saveFile(ActionEvent event) {
+    public void saveFile(ActionEvent event) {
         if (!hasFileSaved) saveAsFile(event);
         else
         {
@@ -169,7 +202,7 @@ public class Controller {
     }
 
     @FXML
-    void saveTask(ActionEvent event) {
+    public void saveTask(ActionEvent event) {
         int selectedItem = getSelectedItemIndex(taskSelector.getValue());
         String[] tasksIn = new String[5];
         String[] tasksOut = new String[5];
@@ -188,7 +221,7 @@ public class Controller {
     }
 
     @FXML
-    void setPassword(ActionEvent event) {
+    public void setPassword(ActionEvent event) {
         TextInputDialog dialog = new TextInputDialog();
         dialog.setTitle("Password protection");
         dialog.setContentText("Enter the password you want to protect the task file:");
@@ -205,21 +238,21 @@ public class Controller {
     }
 
     @FXML
-    void about(ActionEvent event) throws IOException {
+    public void about(ActionEvent event) throws IOException {
         FXMLLoader loader = Main.makeLoader("about.fxml");
         Stage stage = Main.startStage(loader, "About jTest Student", 600, 400, false);
         stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
     }
 
-    void setButtonsState(boolean state) //Керування станом кнопок, які відповідають за зміни в задачах
+    private void setButtonsState() //Керування станом кнопок, які відповідають за зміни в задачах
     {
-        taskSelector.setDisable(!state);
-        addTaskBtn.setDisable(!state);
-        saveTaskBtn.setDisable(!state);
+        taskSelector.setDisable(!true);
+        addTaskBtn.setDisable(!true);
+        saveTaskBtn.setDisable(!true);
     }
 
-    void showError(String text)
+    private void showError(String text)
     {
         Alert error = new Alert(Alert.AlertType.ERROR); //Створення повідомлення про помилку
         error.setTitle("Error");
@@ -227,7 +260,7 @@ public class Controller {
         error.showAndWait();
     }
 
-    int getSelectedItemIndex(String item)
+    private int getSelectedItemIndex(String item)
     {
         for (int i = 0; i < taskSelector.getItems().size(); i++)
         {
@@ -236,7 +269,7 @@ public class Controller {
         return -1; //У випадку помилки
     }
 
-    void updateSelector(int selectedItem)
+    private void updateSelector(int selectedItem)
     {
         ObservableList<String> items = FXCollections.observableArrayList();
         for (int i = 0; i < currentTaskSet.size(); i++) items.add((i + 1) + ". " + currentTaskSet.get(i).getTaskName());

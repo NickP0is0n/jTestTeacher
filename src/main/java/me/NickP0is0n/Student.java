@@ -5,13 +5,13 @@ import java.util.ArrayList;
 import java.util.Date;
 
 //класс с информацией и ответами студента
-public class Student implements Serializable {
+class Student implements Serializable {
 
     private static final long serialVersionUID = -2298260858404281332L;
 
-    private String name;
-    private String surName;
-    private String grade;
+    private final String name;
+    private final String surName;
+    private final String grade;
 
     public Date getStartTime() {
         return startTime;
@@ -48,7 +48,7 @@ public class Student implements Serializable {
         return tasksResults;
     }
 
-    private ArrayList<Integer[]> tasksResults = new ArrayList<>(); //дин. массив с результатами
+    private final ArrayList<Integer[]> tasksResults = new ArrayList<>(); //дин. массив с результатами
 
     Student(String name, String surName, String grade) {
         this.name = name;
@@ -64,8 +64,8 @@ public class Student implements Serializable {
     int[] getDoneTasks()
     {
         int[] doneTasks = new int[tasksResults.size()];
-        for (int i = 0; i < tasksResults.size(); i++) {
-            doneTasks[tasksResults.get(i)[0]] = tasksResults.get(i)[1];
+        for (Integer[] tasksResult : tasksResults) {
+            doneTasks[tasksResult[0]] = tasksResult[1];
         }
         return doneTasks;
     }
