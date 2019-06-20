@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import jfxtras.styles.jmetro8.JMetro;
 
 import java.io.IOException;
@@ -15,10 +16,16 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("jTestTeacher.fxml"));
+        /*Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("jTestTeacher.fxml"));
         primaryStage.setTitle("jTest Teacher");
         primaryStage.setScene(new Scene(root, 640, 581));
         primaryStage.setResizable(false);
+        primaryStage.getIcons().add(new Image(Main.class.getClassLoader().getResourceAsStream("logo.png")));*/
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("start.fxml"));
+        primaryStage.setTitle("jTest Teacher");
+        primaryStage.setScene(new Scene(root, 649, 380));
+        primaryStage.setResizable(false);
+        primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.getIcons().add(new Image(Main.class.getClassLoader().getResourceAsStream("logo.png")));
         java.awt.Image logo = SwingFXUtils.fromFXImage(new Image(Main.class.getClassLoader().getResourceAsStream("logo.png")), null);
         System.out.println();
