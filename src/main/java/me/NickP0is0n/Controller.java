@@ -106,7 +106,6 @@ public class Controller {
 
     void openFile(File taskFile) throws IOException {
         openTaskFile(taskFile);
-
     }
 
     private void removeLineFromFile(File inputFile, String lineToRemove) throws IOException {
@@ -131,12 +130,7 @@ public class Controller {
     private void openTaskFile(File taskFile) throws IOException {
         if(taskFile != null)
         {
-            File latestList = new File("last.list");
-            removeLineFromFile(latestList, taskFile.getAbsolutePath());
-            try (Writer listWriter = new PrintWriter(new FileOutputStream(latestList, true))) {
-                listWriter.append(taskFile.getAbsolutePath());
-            }
-
+            addToLastList(taskFile);
             hasFileSaved = true;
             currentFile = taskFile;
             setButtonsState();
@@ -149,6 +143,14 @@ public class Controller {
             }
             taskNumber = currentTaskSet.size();
             updateSelector(0);
+        }
+    }
+
+    private void addToLastList (File taskFile) throws IOException {
+        File latestList = new File("last.list");
+        removeLineFromFile(latestList, taskFile.getAbsolutePath());
+        try (Writer listWriter = new PrintWriter(new FileOutputStream(latestList, true))) {
+            listWriter.append(taskFile.getAbsolutePath());
         }
     }
 
@@ -174,6 +176,7 @@ public class Controller {
             if (currentFile != null) {
                 try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(currentFile))) {
                     oos.writeObject(currentTaskSet);
+                    addToLastList(currentFile);
                 } catch (Exception e) {
                     e.printStackTrace();
                     showError("An error occurred while saving the file!");

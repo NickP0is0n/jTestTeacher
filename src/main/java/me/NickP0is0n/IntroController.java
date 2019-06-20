@@ -13,6 +13,7 @@ import javafx.stage.StageStyle;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -28,6 +29,7 @@ public class IntroController {
         Scanner listScan = new Scanner(latestList);
         List<String> latestFilePaths = new ArrayList<>();
         while (listScan.hasNextLine()) latestFilePaths.add(listScan.nextLine());
+        Collections.reverse(latestFilePaths);
         lastFileView.setItems(FXCollections.observableArrayList(latestFilePaths));
     }
 
@@ -66,8 +68,8 @@ public class IntroController {
         Stage stage = Main.startStage(loader, "Unnamed [jTest Teacher]", 640, 581, false);
         Controller mainController = loader.getController();
         mainController.makeNewFile();
+        stage.showAndWait();
         updateLatestList();
-        stage.show();
     }
 
     @FXML
