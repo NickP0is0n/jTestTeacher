@@ -17,7 +17,7 @@ import java.util.Optional;
 public class Controller {
 
     @FXML
-    private ChoiceBox<String> taskSelector;
+    private ListView<String> taskSelector;
 
     @FXML
     private TextArea taskEdit;
@@ -77,7 +77,7 @@ public class Controller {
         taskNumber++;
         currentTaskSet.add(new Task("Untitled task"));
         taskSelector.getItems().add(taskNumber + ". " + currentTaskSet.get(taskNumber - 1).getTaskName());
-        taskSelector.setValue(taskNumber + ". " + currentTaskSet.get(taskNumber - 1).getTaskName());
+        taskSelector.getSelectionModel().select(taskNumber + ". " + currentTaskSet.get(taskNumber - 1).getTaskName());
     }
 
     @FXML
@@ -206,7 +206,7 @@ public class Controller {
 
     @FXML
     public void saveTask(ActionEvent event) {
-        int selectedItem = getSelectedItemIndex(taskSelector.getValue());
+        int selectedItem = getSelectedItemIndex(taskSelector.getSelectionModel().getSelectedItem());
         String[] tasksIn = new String[5];
         String[] tasksOut = new String[5];
         getTasks(tasksIn, t1in, t2in, t3in, t4in, t5in);
@@ -277,7 +277,7 @@ public class Controller {
         ObservableList<String> items = FXCollections.observableArrayList();
         for (int i = 0; i < currentTaskSet.size(); i++) items.add((i + 1) + ". " + currentTaskSet.get(i).getTaskName());
         taskSelector.setItems(items);
-        taskSelector.setValue((selectedItem + 1) + ". " + currentTaskSet.get(selectedItem).getTaskName());
+        taskSelector.getSelectionModel().select((selectedItem + 1) + ". " + currentTaskSet.get(selectedItem).getTaskName());
     }
 
 }
