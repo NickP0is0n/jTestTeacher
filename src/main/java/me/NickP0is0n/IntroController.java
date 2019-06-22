@@ -45,7 +45,7 @@ public class IntroController {
         if (!selectedItem.equals("")) {
             FXMLLoader loader = Main.makeLoader("jTestTeacher.fxml");
             File selectedFile = new File(selectedItem);
-            Stage stage = Main.startStage(loader, selectedFile.getAbsolutePath() + " [jTest Teacher]", 640, 581, false);
+            Stage stage = Main.startStage(loader, selectedFile.getAbsolutePath() + " [jTest Teacher]", 822, 480, false);
             Controller mainController = loader.getController();
             mainController.openFile(selectedFile);
             initialize();
@@ -65,7 +65,7 @@ public class IntroController {
     @FXML
     public void onCreateBtn(ActionEvent event) throws IOException {
         FXMLLoader loader = Main.makeLoader("jTestTeacher.fxml");
-        Stage stage = Main.startStage(loader, "Unnamed [jTest Teacher]", 640, 581, false);
+        Stage stage = Main.startStage(loader, "Unnamed [jTest Teacher]", 822, 480, false);
         Controller mainController = loader.getController();
         mainController.makeNewFile();
         stage.showAndWait();
@@ -86,7 +86,7 @@ public class IntroController {
         if(taskFile != null)
         {
             FXMLLoader loader = Main.makeLoader("jTestTeacher.fxml");
-            Stage stage = Main.startStage(loader, taskFile.getAbsolutePath() + " [jTest Teacher]", 640, 581, false);
+            Stage stage = Main.startStage(loader, taskFile.getAbsolutePath() + " [jTest Teacher]", 822, 480, false);
             Controller mainController = loader.getController();
             mainController.openFile(taskFile);
             updateLatestList();

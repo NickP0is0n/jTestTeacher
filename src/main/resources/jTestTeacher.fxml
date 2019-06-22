@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="575.0" prefWidth="822.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.NickP0is0n.Controller">
+<VBox prefHeight="474.0" prefWidth="822.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.NickP0is0n.Controller">
     <MenuBar prefHeight="7.0" prefWidth="640.0" style="-fx-background-color: CCCCCC;" VBox.vgrow="NEVER">
         <Menu mnemonicParsing="false" text="File">
             <MenuItem mnemonicParsing="false" onAction="#makeNewFile" text="New file" />
@@ -31,11 +31,10 @@
             <MenuItem mnemonicParsing="false" onAction="#about" text="About jTest Teacher" />
         </Menu>
     </MenuBar>
-    <AnchorPane style="-fx-background-color: FFFFFF;" VBox.vgrow="ALWAYS">
-        <Text layoutX="306.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose task for editing:" />
-        <TextArea fx:id="taskEdit" layoutX="471.0" layoutY="129.0" prefHeight="113.0" prefWidth="333.0" />
-        <Text layoutX="340.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The task:" />
-        <TabPane layoutX="315.0" layoutY="266.0" prefHeight="279.0" prefWidth="493.0" tabClosingPolicy="UNAVAILABLE">
+    <AnchorPane prefWidth="822.0" style="-fx-background-color: FFFFFF;" VBox.vgrow="ALWAYS">
+        <TextArea fx:id="taskEdit" layoutX="471.0" layoutY="43.0" prefHeight="113.0" prefWidth="333.0" />
+        <Text layoutX="340.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The task:" />
+        <TabPane layoutX="315.0" layoutY="180.0" prefHeight="265.0" prefWidth="493.0" style="-fx-border-color: cccccc;" tabClosingPolicy="UNAVAILABLE">
             <Tab text="Test 1">
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="601.0">
                     <TextArea fx:id="t1in" layoutX="121.0" layoutY="23.0" prefHeight="87.0" prefWidth="333.0" />
@@ -77,11 +76,11 @@
                 </AnchorPane>
             </Tab>
         </TabPane>
-        <Button fx:id="saveTaskBtn" disable="true" layoutX="340.0" layoutY="215.0" mnemonicParsing="false" onAction="#saveTask" text="Save task" />
-        <TextField fx:id="taskName" layoutX="471.0" layoutY="96.0" prefHeight="27.0" prefWidth="333.0" />
-        <Text layoutX="340.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Task name:" />
-        <Button fx:id="addTaskBtn" disable="true" layoutY="518.0" mnemonicParsing="false" onAction="#addNewTask" prefHeight="27.0" prefWidth="147.0" text="Add new task" />
-      <ListView fx:id="taskSelector" prefHeight="518.0" prefWidth="290.0" style="-fx-border-style: none;" />
-      <Button fx:id="addTaskBtn1" disable="true" layoutX="147.0" layoutY="518.0" mnemonicParsing="false" onAction="#addNewTask" prefHeight="27.0" prefWidth="143.0" text="Remove" />
+        <Button fx:id="saveTaskBtn" disable="true" layoutX="340.0" layoutY="129.0" mnemonicParsing="false" onAction="#saveTask" text="Save task" />
+        <TextField fx:id="taskName" layoutX="471.0" layoutY="10.0" prefHeight="27.0" prefWidth="333.0" />
+        <Text layoutX="340.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Task name:" />
+        <Button fx:id="addTaskBtn" disable="true" layoutX="3.0" layoutY="419.0" mnemonicParsing="false" onAction="#addNewTask" prefHeight="27.0" prefWidth="147.0" text="Add new task" />
+      <ListView fx:id="taskSelector" layoutX="-7.0" prefHeight="419.0" prefWidth="297.0" style="-fx-border-color: cccccc;" />
+      <Button fx:id="addTaskBtn1" disable="true" layoutX="150.0" layoutY="419.0" mnemonicParsing="false" onAction="#addNewTask" prefHeight="27.0" prefWidth="137.0" text="Remove" />
     </AnchorPane>
 </VBox>
