@@ -61,6 +61,9 @@ public class Controller {
     @FXML
     private Button addTaskBtn;
 
+    @FXML
+    private Button removeBtn;
+
     private boolean hasFileSaved = false; //Чи збережено десь файл
     private boolean isFileInWork = false; //Чи відкрито якийсь файл
     private File currentFile; //Поточний файл у готовому до роботи вигляді
@@ -76,8 +79,8 @@ public class Controller {
     public void addNewTask() {
         taskNumber++;
         currentTaskSet.add(new Task("Untitled task"));
-        taskSelector.getItems().add(taskNumber + ". " + currentTaskSet.get(taskNumber - 1).getTaskName());
-        taskSelector.getSelectionModel().select(taskNumber + ". " + currentTaskSet.get(taskNumber - 1).getTaskName());
+        taskSelector.getItems().add(currentTaskSet.get(taskNumber - 1).getTaskName());
+        taskSelector.getSelectionModel().select(currentTaskSet.get(taskNumber - 1).getTaskName());
     }
 
     @FXML
@@ -215,6 +218,14 @@ public class Controller {
         updateSelector(selectedItem);
     }
 
+    @FXML
+    void removeTask(ActionEvent event) {
+        int selectedItem = getSelectedItemIndex(taskSelector.getSelectionModel().getSelectedItem());
+        currentTaskSet.remove(selectedItem);
+        taskSelector.getItems().remove(taskSelector.getSelectionModel().getSelectedItem());
+        if (taskSelector.getItems().size() < 1) removeBtn.setDisable(true);
+    }
+
     private void getTasks(String[] tasksIn, TextArea t1in, TextArea t2in, TextArea t3in, TextArea t4in, TextArea t5in) {
         tasksIn[0] = t1in.getText();
         tasksIn[1] = t2in.getText();
@@ -250,9 +261,10 @@ public class Controller {
 
     private void setButtonsState() //Керування станом кнопок, які відповідають за зміни в задачах
     {
-        taskSelector.setDisable(!true);
-        addTaskBtn.setDisable(!true);
-        saveTaskBtn.setDisable(!true);
+        taskSelector.setDisable(false);
+        addTaskBtn.setDisable(false);
+        saveTaskBtn.setDisable(false);
+        removeBtn.setDisable(false);
     }
 
     private void showError(String text)
@@ -275,9 +287,9 @@ public class Controller {
     private void updateSelector(int selectedItem)
     {
         ObservableList<String> items = FXCollections.observableArrayList();
-        for (int i = 0; i < currentTaskSet.size(); i++) items.add((i + 1) + ". " + currentTaskSet.get(i).getTaskName());
+        for (int i = 0; i < currentTaskSet.size(); i++) items.add(currentTaskSet.get(i).getTaskName());
         taskSelector.setItems(items);
-        taskSelector.getSelectionModel().select((selectedItem + 1) + ". " + currentTaskSet.get(selectedItem).getTaskName());
+        taskSelector.getSelectionModel().select(currentTaskSet.get(selectedItem).getTaskName());
     }
 
 }
