@@ -43,7 +43,7 @@
                 <Font name="Lucida Sans Demibold" size="19.0"/>
             </font>
         </Label>
-        <Label layoutX="25.0" layoutY="197.0" prefHeight="26.0" prefWidth="550.0" text="Built on June 19, 2019"
+        <Label layoutX="25.0" layoutY="197.0" prefHeight="26.0" prefWidth="550.0" text="Built on June 22, 2019"
                wrapText="true"/>
         <Label layoutX="25.0" layoutY="272.0" prefHeight="54.0" prefWidth="550.0"
                text="jTest Teacher is a part of jTest software package." wrapText="true">

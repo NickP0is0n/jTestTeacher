@@ -80,7 +80,7 @@
         <TextField fx:id="taskName" layoutX="471.0" layoutY="10.0" prefHeight="27.0" prefWidth="333.0" />
         <Text layoutX="340.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Task name:" />
         <Button fx:id="addTaskBtn" disable="true" layoutX="3.0" layoutY="419.0" mnemonicParsing="false" onAction="#addNewTask" prefHeight="27.0" prefWidth="147.0" text="Add new task" />
-      <ListView fx:id="taskSelector" layoutX="-7.0" prefHeight="419.0" prefWidth="297.0" style="-fx-border-color: cccccc;" />
+      <ListView fx:id="taskSelector" layoutX="-7.0" onMouseClicked="#onListClicked" prefHeight="419.0" prefWidth="297.0" style="-fx-border-color: cccccc;" />
       <Button fx:id="removeBtn" disable="true" layoutX="150.0" layoutY="419.0" mnemonicParsing="false" onAction="#removeTask" prefHeight="27.0" prefWidth="137.0" text="Remove" />
     </AnchorPane>
 </VBox>

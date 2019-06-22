@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -149,6 +150,30 @@ public class Controller {
         }
     }
 
+    @FXML
+    void onListClicked(MouseEvent event) {
+        updateGUI();
+    }
+
+    void updateGUI() {
+        if (taskNumber > 0) {
+            taskName.setText(currentTaskSet.get(taskSelector.getSelectionModel().getSelectedIndex()).getTaskName());
+            taskEdit.setText(currentTaskSet.get(taskSelector.getSelectionModel().getSelectedIndex()).getTaskDescription());
+
+            t1in.setText(currentTaskSet.get(taskSelector.getSelectionModel().getSelectedIndex()).getTaskIn()[0]);
+            t2in.setText(currentTaskSet.get(taskSelector.getSelectionModel().getSelectedIndex()).getTaskIn()[1]);
+            t3in.setText(currentTaskSet.get(taskSelector.getSelectionModel().getSelectedIndex()).getTaskIn()[2]);
+            t4in.setText(currentTaskSet.get(taskSelector.getSelectionModel().getSelectedIndex()).getTaskIn()[3]);
+            t5in.setText(currentTaskSet.get(taskSelector.getSelectionModel().getSelectedIndex()).getTaskIn()[4]);
+
+            t1out.setText(currentTaskSet.get(taskSelector.getSelectionModel().getSelectedIndex()).getTaskOut()[0]);
+            t2out.setText(currentTaskSet.get(taskSelector.getSelectionModel().getSelectedIndex()).getTaskOut()[1]);
+            t3out.setText(currentTaskSet.get(taskSelector.getSelectionModel().getSelectedIndex()).getTaskOut()[2]);
+            t4out.setText(currentTaskSet.get(taskSelector.getSelectionModel().getSelectedIndex()).getTaskOut()[3]);
+            t5out.setText(currentTaskSet.get(taskSelector.getSelectionModel().getSelectedIndex()).getTaskOut()[4]);
+        }
+    }
+
     private void addToLastList (File taskFile) throws IOException {
         File latestList = new File("last.list");
         removeLineFromFile(latestList, taskFile.getAbsolutePath());
@@ -223,7 +248,8 @@ public class Controller {
         int selectedItem = getSelectedItemIndex(taskSelector.getSelectionModel().getSelectedItem());
         currentTaskSet.remove(selectedItem);
         taskSelector.getItems().remove(taskSelector.getSelectionModel().getSelectedItem());
-        if (taskSelector.getItems().size() < 1) removeBtn.setDisable(true);
+        if (taskNumber < 1) removeBtn.setDisable(true);
+        taskNumber--;
     }
 
     private void getTasks(String[] tasksIn, TextArea t1in, TextArea t2in, TextArea t3in, TextArea t4in, TextArea t5in) {
@@ -290,6 +316,7 @@ public class Controller {
         for (int i = 0; i < currentTaskSet.size(); i++) items.add(currentTaskSet.get(i).getTaskName());
         taskSelector.setItems(items);
         taskSelector.getSelectionModel().select(currentTaskSet.get(selectedItem).getTaskName());
+        updateGUI();
     }
 
 }
