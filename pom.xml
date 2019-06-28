@@ -24,6 +24,7 @@
                 <version>8.8.3</version>
                 <configuration>
                     <vendor>NickP0is0n</vendor>
+                    <appName>jTest Teacher</appName>
                     <mainClass>me.NickP0is0n.Main</mainClass>
                 </configuration>
             </plugin>

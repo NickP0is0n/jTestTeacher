@@ -94,9 +94,4 @@ public class IntroController {
         }
     }
 
-    @FXML
-    public void onTutorBtn() {
-
-    }
-
 }

@@ -157,20 +157,17 @@ public class Controller {
 
     void updateGUI() {
         if (taskNumber > 0) {
+            TextArea[] testInputAreas = {t1in, t2in, t3in, t4in, t5in};
+            TextArea[] testOutputAreas = {t1out, t2out, t3out, t4out, t5out};
+
             taskName.setText(currentTaskSet.get(taskSelector.getSelectionModel().getSelectedIndex()).getTaskName());
             taskEdit.setText(currentTaskSet.get(taskSelector.getSelectionModel().getSelectedIndex()).getTaskDescription());
 
-            t1in.setText(currentTaskSet.get(taskSelector.getSelectionModel().getSelectedIndex()).getTaskIn()[0]);
-            t2in.setText(currentTaskSet.get(taskSelector.getSelectionModel().getSelectedIndex()).getTaskIn()[1]);
-            t3in.setText(currentTaskSet.get(taskSelector.getSelectionModel().getSelectedIndex()).getTaskIn()[2]);
-            t4in.setText(currentTaskSet.get(taskSelector.getSelectionModel().getSelectedIndex()).getTaskIn()[3]);
-            t5in.setText(currentTaskSet.get(taskSelector.getSelectionModel().getSelectedIndex()).getTaskIn()[4]);
+            for (int i = 0; i < 5; i++) {
+                testInputAreas[i].setText(currentTaskSet.get(taskSelector.getSelectionModel().getSelectedIndex()).getTaskIn()[i]);
+                testOutputAreas[i].setText(currentTaskSet.get(taskSelector.getSelectionModel().getSelectedIndex()).getTaskOut()[i]);
+            }
 
-            t1out.setText(currentTaskSet.get(taskSelector.getSelectionModel().getSelectedIndex()).getTaskOut()[0]);
-            t2out.setText(currentTaskSet.get(taskSelector.getSelectionModel().getSelectedIndex()).getTaskOut()[1]);
-            t3out.setText(currentTaskSet.get(taskSelector.getSelectionModel().getSelectedIndex()).getTaskOut()[2]);
-            t4out.setText(currentTaskSet.get(taskSelector.getSelectionModel().getSelectedIndex()).getTaskOut()[3]);
-            t5out.setText(currentTaskSet.get(taskSelector.getSelectionModel().getSelectedIndex()).getTaskOut()[4]);
         }
     }
 
