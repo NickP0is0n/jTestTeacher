@@ -46,6 +46,7 @@ class Student implements Serializable {
         return grade;
     }
 
+    @Deprecated
     public ArrayList<Integer[]> getTasksResults() {
         return tasksResults;
     }

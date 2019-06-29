@@ -13,7 +13,7 @@ public class StudentTest {
         String grade = "1";
         Student student = new Student(name, surName, grade);
         student.addTask(0, 10);
-        assertEquals((int)student.getTasksResults().get(0)[1], 10);
+        assertEquals((int)student.getDoneTasks()[0], 10);
     }
 
     @Test
