@@ -25,6 +25,7 @@
                 <configuration>
                     <vendor>NickP0is0n</vendor>
                     <appName>jTest Teacher</appName>
+                    <nativeReleaseVersion>1.1</nativeReleaseVersion>
                     <mainClass>me.NickP0is0n.Main</mainClass>
                 </configuration>
             </plugin>
@@ -36,6 +37,12 @@
             <groupId>org.jfxtras</groupId>
             <artifactId>jmetro</artifactId>
             <version>5.5</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>RELEASE</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

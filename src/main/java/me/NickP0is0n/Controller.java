@@ -131,6 +131,7 @@ public class Controller {
         tempFile.renameTo(inputFile);
     }
 
+
     private void openTaskFile(File taskFile) throws IOException {
         if(taskFile != null)
         {

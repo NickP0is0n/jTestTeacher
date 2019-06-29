@@ -13,6 +13,11 @@ class Student implements Serializable {
     private final String surName;
     private final String grade;
 
+    private Date startTime;
+    private Date finishTime;
+
+    private ArrayList<Integer[]> tasksResults = new ArrayList<>(); //дин. массив с результатами
+
     public Date getStartTime() {
         return startTime;
     }
@@ -29,9 +34,6 @@ class Student implements Serializable {
         this.finishTime = finishTime;
     }
 
-    private Date startTime;
-    private Date finishTime;
-
     public String getName() {
         return name;
     }
@@ -47,8 +49,6 @@ class Student implements Serializable {
     public ArrayList<Integer[]> getTasksResults() {
         return tasksResults;
     }
-
-    private final ArrayList<Integer[]> tasksResults = new ArrayList<>(); //дин. массив с результатами
 
     Student(String name, String surName, String grade) {
         this.name = name;
