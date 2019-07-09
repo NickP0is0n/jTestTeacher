@@ -93,7 +93,7 @@ public class Controller {
     public void makeNewFile() {
         isFileInWork = true;
         currentTaskSet = new TaskSet();
-        setButtonsState();
+        enableFormButtons();
         taskNumber = 0;
         taskSelector.setItems(FXCollections.observableArrayList());
         addNewTask();
@@ -138,7 +138,7 @@ public class Controller {
             addToLastList(taskFile);
             hasFileSaved = true;
             currentFile = taskFile;
-            setButtonsState();
+            enableFormButtons();
             try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(taskFile)))
             {
                 currentTaskSet = (TaskSet) ois.readObject();
@@ -244,10 +244,29 @@ public class Controller {
     @FXML
     void removeTask(ActionEvent event) {
         int selectedItem = getSelectedItemIndex(taskSelector.getSelectionModel().getSelectedItem());
-        currentTaskSet.remove(selectedItem);
-        taskSelector.getItems().remove(taskSelector.getSelectionModel().getSelectedItem());
+        removeTaskFromTaskSet(selectedItem);
+    }
+
+    @FXML
+    public void setPassword(ActionEvent event) {
+        String password = getTextFromTextInputDialog("Password protection", "Enter the password you want to protect the task file:");
+        setTaskSetPassword(password);
+    }
+
+    @FXML
+    public void about(ActionEvent event) throws IOException {
+        showInfoAboutApp();
+    }
+
+    private void removeTaskFromTaskSet(int taskNumber) {
+        currentTaskSet.remove(taskNumber);
+        removeTaskFromList(taskSelector.getSelectionModel().getSelectedItem());
         if (taskNumber < 1) removeBtn.setDisable(true);
         taskNumber--;
+    }
+
+    private void removeTaskFromList(String item) {
+        taskSelector.getItems().remove(item);
     }
 
     private void getTasks(String[] tasksIn, TextArea t1in, TextArea t2in, TextArea t3in, TextArea t4in, TextArea t5in) {
@@ -258,32 +277,36 @@ public class Controller {
         tasksIn[4] = t5in.getText();
     }
 
-    @FXML
-    public void setPassword(ActionEvent event) {
-        TextInputDialog dialog = new TextInputDialog();
-        dialog.setTitle("Password protection");
-        dialog.setContentText("Enter the password you want to protect the task file:");
-        Optional<String> result = dialog.showAndWait();
-        if (result.isPresent())
-        {
-            if(result.get().isEmpty()) currentTaskSet.setPasswordProtected(false);
-            else
-            {
-                currentTaskSet.setPassword(result.get());
-                currentTaskSet.setPasswordProtected(true);
-            }
+    private void setTaskSetPassword(String password) {
+        if (password.isEmpty()) currentTaskSet.setPasswordProtected(false);
+        else {
+            currentTaskSet.setPassword(password);
+            currentTaskSet.setPasswordProtected(true);
         }
     }
 
-    @FXML
-    public void about(ActionEvent event) throws IOException {
+    private String getTextFromTextInputDialog(String title, String contentText) {
+        TextInputDialog dialog = makeTextInputDialog(title, contentText);
+        Optional<String> result = dialog.showAndWait();
+        if (!result.isPresent() || result.get().isEmpty()) return "";
+        else return result.get();
+    }
+
+    private TextInputDialog makeTextInputDialog (String title, String contentText) {
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setTitle(title);
+        dialog.setContentText(contentText);
+        return dialog;
+    }
+
+    private void showInfoAboutApp() throws IOException {
         FXMLLoader loader = Main.makeLoader("about.fxml");
         Stage stage = Main.startStage(loader, "About jTest Student", 600, 400, false);
         stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
     }
 
-    private void setButtonsState() //Керування станом кнопок, які відповідають за зміни в задачах
+    private void enableFormButtons() //Керування станом кнопок, які відповідають за зміни в задачах
     {
         taskSelector.setDisable(false);
         addTaskBtn.setDisable(false);
