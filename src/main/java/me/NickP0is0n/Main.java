@@ -17,11 +17,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        /*Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("jTestTeacher.fxml"));
-        primaryStage.setTitle("jTest Teacher");
-        primaryStage.setScene(new Scene(root, 640, 581));
-        primaryStage.setResizable(false);
-        primaryStage.getIcons().add(new Image(Main.class.getClassLoader().getResourceAsStream("logo.png")));*/
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("start.fxml"));
         primaryStage.setTitle("jTest Teacher");
         primaryStage.setScene(new Scene(root, 649, 380));
