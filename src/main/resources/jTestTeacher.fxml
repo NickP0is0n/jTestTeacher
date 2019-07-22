@@ -32,8 +32,8 @@
         </Menu>
     </MenuBar>
     <AnchorPane prefWidth="822.0" style="-fx-background-color: FFFFFF;" VBox.vgrow="ALWAYS">
-        <TextArea fx:id="taskEdit" layoutX="471.0" layoutY="43.0" prefHeight="113.0" prefWidth="333.0" />
-        <Text layoutX="340.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The task:" />
+        <TextArea fx:id="taskEdit" layoutX="423.0" layoutY="43.0" prefHeight="113.0" prefWidth="381.0" />
+        <Text layoutX="316.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The task:" />
         <TabPane layoutX="315.0" layoutY="180.0" prefHeight="265.0" prefWidth="493.0" style="-fx-border-color: cccccc;" tabClosingPolicy="UNAVAILABLE">
             <Tab text="Test 1">
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="601.0">
@@ -76,9 +76,9 @@
                 </AnchorPane>
             </Tab>
         </TabPane>
-        <Button fx:id="saveTaskBtn" disable="true" layoutX="340.0" layoutY="129.0" mnemonicParsing="false" onAction="#saveTask" text="Save task" />
-        <TextField fx:id="taskName" layoutX="471.0" layoutY="10.0" prefHeight="27.0" prefWidth="333.0" />
-        <Text layoutX="340.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Task name:" />
+        <Button fx:id="saveTaskBtn" disable="true" layoutX="315.0" layoutY="129.0" mnemonicParsing="false" onAction="#saveTask" prefHeight="27.0" prefWidth="96.0" text="Save" AnchorPane.bottomAnchor="290.0" AnchorPane.leftAnchor="315.0" AnchorPane.rightAnchor="411.0" AnchorPane.topAnchor="129.0" />
+        <TextField fx:id="taskName" layoutX="423.0" layoutY="10.0" prefHeight="27.0" prefWidth="381.0" />
+        <Text layoutX="315.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Task name:" />
         <Button fx:id="addTaskBtn" disable="true" layoutY="419.0" mnemonicParsing="false" onAction="#addNewTask" prefHeight="27.0" prefWidth="150.0" text="Add new task" />
       <ListView fx:id="taskSelector" layoutX="-7.0" onMouseClicked="#onListClicked" prefHeight="419.0" prefWidth="297.0" style="-fx-border-color: cccccc;" />
       <Button fx:id="removeBtn" disable="true" layoutX="150.0" layoutY="419.0" mnemonicParsing="false" onAction="#removeTask" prefHeight="27.0" prefWidth="140.0" text="Remove" />
