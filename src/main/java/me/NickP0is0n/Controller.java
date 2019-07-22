@@ -233,12 +233,7 @@ public class Controller {
     @FXML
     public void saveTask(ActionEvent event) {
         int selectedItem = getSelectedItemIndex(taskSelector.getSelectionModel().getSelectedItem());
-        String[] tasksIn = new String[5];
-        String[] tasksOut = new String[5];
-        getTasks(tasksIn, t1in, t2in, t3in, t4in, t5in);
-        getTasks(tasksOut, t1out, t2out, t3out, t4out, t5out);
-        currentTaskSet.set(selectedItem, currentTaskSet.get(selectedItem).setTaskName(taskName.getText()).setTaskIn(tasksIn).setTaskOut(tasksOut).setTaskDescription(taskEdit.getText()));
-        updateSelector(selectedItem);
+        saveTaskInTaskSet(selectedItem);
     }
 
     @FXML
@@ -256,6 +251,15 @@ public class Controller {
     @FXML
     public void about(ActionEvent event) throws IOException {
         showInfoAboutApp();
+    }
+
+    private void saveTaskInTaskSet(int taskNumber) {
+        String[] tasksIn = new String[5];
+        String[] tasksOut = new String[5];
+        getTasks(tasksIn, t1in, t2in, t3in, t4in, t5in);
+        getTasks(tasksOut, t1out, t2out, t3out, t4out, t5out);
+        currentTaskSet.set(taskNumber, currentTaskSet.get(taskNumber).setTaskName(taskName.getText()).setTaskIn(tasksIn).setTaskOut(tasksOut).setTaskDescription(taskEdit.getText()));
+        updateSelector(taskNumber);
     }
 
     private void removeTaskFromTaskSet(int taskNumber) {
