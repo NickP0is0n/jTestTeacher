@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="474.0" prefWidth="822.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.NickP0is0n.Controller">
+<VBox prefHeight="474.0" prefWidth="822.0" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.NickP0is0n.Controller">
     <MenuBar prefHeight="7.0" prefWidth="640.0" style="-fx-background-color: CCCCCC;" VBox.vgrow="NEVER">
         <Menu mnemonicParsing="false" text="File">
             <MenuItem mnemonicParsing="false" onAction="#makeNewFile" text="New file" />
@@ -79,8 +79,8 @@
         <Button fx:id="saveTaskBtn" disable="true" layoutX="340.0" layoutY="129.0" mnemonicParsing="false" onAction="#saveTask" text="Save task" />
         <TextField fx:id="taskName" layoutX="471.0" layoutY="10.0" prefHeight="27.0" prefWidth="333.0" />
         <Text layoutX="340.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Task name:" />
-        <Button fx:id="addTaskBtn" disable="true" layoutX="3.0" layoutY="419.0" mnemonicParsing="false" onAction="#addNewTask" prefHeight="27.0" prefWidth="147.0" text="Add new task" />
+        <Button fx:id="addTaskBtn" disable="true" layoutY="419.0" mnemonicParsing="false" onAction="#addNewTask" prefHeight="27.0" prefWidth="150.0" text="Add new task" />
       <ListView fx:id="taskSelector" layoutX="-7.0" onMouseClicked="#onListClicked" prefHeight="419.0" prefWidth="297.0" style="-fx-border-color: cccccc;" />
-      <Button fx:id="removeBtn" disable="true" layoutX="150.0" layoutY="419.0" mnemonicParsing="false" onAction="#removeTask" prefHeight="27.0" prefWidth="137.0" text="Remove" />
+      <Button fx:id="removeBtn" disable="true" layoutX="150.0" layoutY="419.0" mnemonicParsing="false" onAction="#removeTask" prefHeight="27.0" prefWidth="140.0" text="Remove" />
     </AnchorPane>
 </VBox>
