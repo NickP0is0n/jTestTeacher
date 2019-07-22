@@ -6,7 +6,7 @@
 
     <groupId>me.NickP0is0n</groupId>
     <artifactId>jTestTeacher</artifactId>
-    <version>1.1-BETA2</version>
+    <version>1.1.0</version>
 
     <build>
         <plugins>
@@ -25,7 +25,7 @@
                 <configuration>
                     <vendor>NickP0is0n</vendor>
                     <appName>jTest Teacher</appName>
-                    <nativeReleaseVersion>1.1</nativeReleaseVersion>
+                    <nativeReleaseVersion>1.1.0</nativeReleaseVersion>
                     <mainClass>me.NickP0is0n.Main</mainClass>
                 </configuration>
             </plugin>
